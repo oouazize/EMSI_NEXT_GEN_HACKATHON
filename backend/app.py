@@ -12,7 +12,15 @@ app = Flask(__name__)
 # quiz
 @app.route('/api/quiz', methods=['POST'])
 def quiz():
-    return call_quiz(request.json["topic"], request.json["level"], request.json["input"])
+    result = call_quiz(request.json["topic"], request.json["level"], request.json["input"])
+    question, options = result.split("options:")
+
+    question = question.strip()
+    options = options.strip().split(",")
+    return {
+        "question": question,
+        "options": options
+    }
 
 # Recommendations
 @app.route('/api/recommendation', methods=['GET'])
