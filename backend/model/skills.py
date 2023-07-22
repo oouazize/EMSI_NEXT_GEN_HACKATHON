@@ -3,7 +3,7 @@ import numpy
 from sklearn.cluster import KMeans
 
 # Use KMeans to cluster users based on their skills
-def skills(con: Connection) -> numpy.ndarray:
+def skills(con: Connection) -> list:
     cur = con.cursor()
     cur.execute("SELECT * FROM User")
     users = cur.fetchall()
@@ -13,4 +13,4 @@ def skills(con: Connection) -> numpy.ndarray:
 
     kmeans = KMeans(n_clusters=10, n_init='auto').fit(data_points)
 
-    return kmeans.labels_
+    return [(users[i][1], int(kmeans.labels_[i])) for i in range(len(users))]

@@ -35,7 +35,7 @@ def feedback():
 # Skills
 @app.route('/api/skills', methods=['GET'])
 def skills():
-    return call_skills(con).tolist()
+    return call_skills(con)
 
 if __name__ == '__main__':
     app.run()

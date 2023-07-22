@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS User;
 cur.execute('''
 CREATE TABLE IF NOT EXISTS User (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT NOT NULL,
+    username TEXT NOT NULL UNIQUE,
     cpp      INTEGER NOT NULL,
     java     INTEGER NOT NULL,
     python   INTEGER NOT NULL,
