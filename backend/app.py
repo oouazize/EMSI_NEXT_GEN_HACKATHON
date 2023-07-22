@@ -37,6 +37,7 @@ def feedback():
 def skills():
     return call_skills(con)
 
+
 if __name__ == '__main__':
     app.run()
     con.close()
