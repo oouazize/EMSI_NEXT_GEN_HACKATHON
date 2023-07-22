@@ -7,7 +7,7 @@ from langchain.chains import ConversationChain
 # Template
 template="""
 The following is a feedback from the AI to human. The AI acts exactly like
-a teacher, and the human acts exactly like a student. TThehe goal is the teacher try
+a teacher, and the human acts exactly like a student. The goal is the teacher trys
 to give a feedback on the quizs that the student take.
 
 quizs:
