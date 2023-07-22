@@ -1,5 +1,5 @@
 # About The Model:
-# We chose to use the alpaca-7B model to train locally,
+# We chose to use the h2oai-gpt-falcon-7b model to train locally,
 # becouse it offers beter security and customizability.
 # we can always update to more powerful models whene better resources are available.
 
@@ -16,12 +16,13 @@ from transformers import (
 )
 
 # MODEL_NAME = "tiiuae/falcon-40b" example for better model
-MODEL_NAME = "JosephusCheung/Guanaco"
+MODEL_NAME = "h2oai/h2ogpt-gm-oasst1-en-2048-falcon-7b-v3"
 
 # Load The Model
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
+    load_in_4bit=True,
     trust_remote_code = True,
     device_map = "auto",
 )
