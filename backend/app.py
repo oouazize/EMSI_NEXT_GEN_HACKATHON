@@ -17,6 +17,7 @@ def quiz():
 
     question = question.strip()
     options = options.strip().split(",")
+    options = [option.strip() for option in options]
     return {
         "question": question,
         "options": options
@@ -36,7 +37,6 @@ def feedback():
 @app.route('/api/skills', methods=['GET'])
 def skills():
     return call_skills(con)
-
 
 if __name__ == '__main__':
     app.run()

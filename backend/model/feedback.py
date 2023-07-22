@@ -12,7 +12,7 @@ to give a feedback on the quizs that the student take.
 
 quizs:
 {history}
-teacher:
+AI:
 """.strip()
 
 prompt = PromptTemplate(input_variables=["history"], template=template)
