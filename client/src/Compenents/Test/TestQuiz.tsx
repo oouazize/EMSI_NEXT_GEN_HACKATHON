@@ -3,27 +3,31 @@ import { useEffect } from 'react'
 import axios from "axios"
 import "../../scss/TestQuiz.scss"
 import QCM from "./QCM"
+import Notification from '../Notification'
 
 export default function TestQuiz() {
 
     const [NumberOfQuestion, setNumberOfQuestion] = useState(1)
 
-    function handleSubmit() {
-        setNumberOfQuestion(prev => prev + 1)
-        progress = NumberOfQuestion * 100 / 15
-    }
+    // function handleSubmit() {
+    //     setNumberOfQuestion(prev => prev + 1)
+    //     progress = NumberOfQuestion * 100 / 15
+    // }
 
-    const [Question, setQuestion] = useState("")
+    const [Question, setQuestion] = useState("Amet facilisis porttitor malesuada ultrices dictumst viverra.")
 
-    let progress = 33
+    const [progress, setProgress] = useState(0)
 
     useEffect(() => {
+        setNumberOfQuestion(prev => prev + 1)
+        setProgress(NumberOfQuestion * 100 / 15)
         const getQuestion = async () => {
             try {
                 const data = await axios.get(`/api/quiz`);
                 setQuestion(data);
             } catch (error) {
-                getQuestion()
+                // <Notification message="HTTP 500 Internal Server Error" />
+                console.log(error);
             }
             };
             getQuestion()
@@ -53,7 +57,16 @@ export default function TestQuiz() {
     })
 
     function sendResponse() {
-        
+        const send = async () => {
+        try {
+            await axios.post(`/api/quiz`, Response);
+            window.location.replace("/TestQuiz")
+        } catch (error) {
+            // <Notification message={error} />
+            console.log(error);
+        }
+        };
+        send()
     }
 
   return (

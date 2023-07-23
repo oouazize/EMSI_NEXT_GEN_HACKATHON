@@ -49,13 +49,13 @@ export default function Sign() {
     }
 
     function handleSubmit() {
-        window.location.replace("http://192.168.0.9:5173/home")
+        window.location.replace("/home")
         // setNotif("")
         // const bodyResponse = SignX === "in" ? formData : formDataUp
         // const sendFormData = async () => {
         // try {
         //     const response = await axios.post(`/api/auth/sign${SignX}`, bodyResponse);
-        //     SignX === "up" ? setNotif(response.data) : window.location.replace("http://localhost:5173/home")
+        //     SignX === "up" ? setNotif(response.data) : window.location.replace("/home")
         // } catch (error) {
         //     error.response.data.message === undefined ?
         //     setNotif(error.response.data) :
@@ -66,7 +66,7 @@ export default function Sign() {
     }
 
     function handleAuth(props: string) {
-        window.location.replace("http://192.168.0.9:5173/home")
+        window.location.replace("/home")
         // window.location.replace(`http://localhost:3000/api/auth/${props}`)
     }
 
