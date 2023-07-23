@@ -1,4 +1,4 @@
-from database.database import con
+from database import db_connection
 from flask import Flask
 from flask import request
 
@@ -12,16 +12,7 @@ app = Flask(__name__)
 # quiz
 @app.route('/api/quiz', methods=['POST'])
 def quiz():
-    result = call_quiz(request.json["topic"], request.json["level"], request.json["input"])
-    question, options = result.split("options:")
-
-    question = question.strip()
-    options = options.strip().split(",")
-    options = [option.strip() for option in options]
-    return {
-        "question": question,
-        "options": options
-    }
+    return call_quiz(request.json["input"])
 
 # Recommendations
 @app.route('/api/recommendation', methods=['GET'])
@@ -36,8 +27,8 @@ def feedback():
 # Skills
 @app.route('/api/skills', methods=['GET'])
 def skills():
-    return call_skills(con)
+    return call_skills(db_connection)
 
 if __name__ == '__main__':
     app.run()
-    con.close()
+    db_connection.close()

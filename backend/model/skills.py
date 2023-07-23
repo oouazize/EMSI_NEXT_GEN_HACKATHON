@@ -1,4 +1,4 @@
-from sqlite3.dbapi2 import Connection
+from psycopg2.extensions import connection as Connection
 import numpy
 from sklearn.cluster import KMeans
 
