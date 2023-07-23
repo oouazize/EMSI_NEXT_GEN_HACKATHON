@@ -9,6 +9,10 @@ import shape from "../../assets/shape.png"
 export default function ModuleView() {
   const videoId = "HEiPxjVR8CU";
 
+  function TestNowClick() {
+    window.location.replace("/TestQuiz")
+  }
+
   function handleClick() {
     window.open('https://medium.com/codex/the-difference-between-call-by-value-and-call-by-reference-25ed5950797e', '_blank');
   }
@@ -16,7 +20,7 @@ export default function ModuleView() {
   return (
     <div className='modelView'>
       <div className='head'>
-        <button className='btn testNow'>Test Now</button>
+        <button onClick={TestNowClick} className='btn testNow'>Test Now</button>
       </div>
       <div className='cover'>
         <div className='resources'>

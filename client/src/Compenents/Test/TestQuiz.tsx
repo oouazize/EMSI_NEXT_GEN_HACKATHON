@@ -9,12 +9,7 @@ export default function TestQuiz() {
 
     const [NumberOfQuestion, setNumberOfQuestion] = useState(1)
 
-    // function handleSubmit() {
-    //     setNumberOfQuestion(prev => prev + 1)
-    //     progress = NumberOfQuestion * 100 / 15
-    // }
-
-    const [Question, setQuestion] = useState("Amet facilisis porttitor malesuada ultrices dictumst viverra.")
+    const [Question, setQuestion] = useState("Explain the concept of pointers in C and how they differ from regular variables. ")
 
     const [progress, setProgress] = useState(0)
 
@@ -57,6 +52,7 @@ export default function TestQuiz() {
     })
 
     function sendResponse() {
+        window.location.replace("/TestQuiz")
         const send = async () => {
         try {
             await axios.post(`/api/quiz`, Response);
