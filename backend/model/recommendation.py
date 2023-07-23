@@ -3,6 +3,7 @@ from model.model import llm
 from model.quiz import memory
 from langchain import PromptTemplate
 from langchain.chains import ConversationChain
+from model.tools import CleanupOutputParser
 
 # Template
 template="""
@@ -16,13 +17,12 @@ links for tutorials: link1, link2, link3
 
 quizs:
 {history}
-AI:
-""".strip()
+AI:{input}""".strip()
 
-prompt = PromptTemplate(input_variables=["history"], template=template)
+prompt = PromptTemplate(input_variables=["input", "history"], template=template) 
 
 # Normaly Each memory and chain would unique to each user, (solution: use a database)
-chain = ConversationChain(llm=llm, memory=memory, prompt=prompt, verbose=True)
+chain = ConversationChain(llm=llm, memory=memory, prompt=prompt, output_parser=CleanupOutputParser(), erbose=True)
 
 def recommendation() -> str:
-    return chain.predict()
+    return chain.predict(input=None)
