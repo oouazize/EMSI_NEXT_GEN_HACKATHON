@@ -7,15 +7,13 @@
     width: 100vw;
     height: 100vh;
     .head {
-        height: 15%;
-        // background: red;
+        padding: 1rem;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         padding-right: 4%;
         .testNow {
-            width: 10.44rem;
-            height: 3rem;
+            padding: 4px 12px;
             background-color: transparent;
             border-radius: 0.625rem;
             border: 3px solid $secondary-color;
@@ -23,7 +21,7 @@
             align-items: center;
             justify-content: center;
             color: $secondary-color;
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
         .testNow:hover {
             background: $secondary-color;
@@ -33,9 +31,7 @@
     .cover {
         display: flex;
         justify-content: center;
-        align-items: center;
         width: 100%;
-        height: 100%;
         .resources {
             display: grid;
             grid-template-columns: 1fr 1fr;

@@ -54,6 +54,7 @@
                     width: 100%;
                     gap: 1.25rem;
                     .btn-google {
+                        color: #242424;
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -93,9 +94,11 @@
                     flex-direction: column;
                     gap: 1.25rem;
                     input {
+                        color: #242424;
                         padding: 1.125rem;
                         border-radius: 0.625rem;
                         border: 1.5px solid #D3CCCC;
+                        background: transparent;
                     }
                     .yourNameForm {
                         display: flex;
